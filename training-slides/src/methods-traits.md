@@ -71,7 +71,7 @@ This slide is only intended to show that there's lots of complexity behind the c
 
 * You can also just declare functions with no *method receiver*.
 * You call these with normal *function call* syntax.
-* Typically we provide a function called `new`
+* Typically we provide a constructor function called `new`
 
 ```rust []
 pub struct Square(f64);
@@ -114,6 +114,7 @@ impl Square {
 
 * A trait is a list of methods and functions that a type must have.
 * A trait can provide *default* implementations if desired.
+* Traits allow polymorphism in Rust.
 
 ```rust []
 trait HasArea {
@@ -312,7 +313,7 @@ trait Printable: std::fmt::Debug {
 
 * Some traits have no functions (`Copy`, `Send`, `Sync`, etc)
   * But code can require that the trait is implemented
-  * More in this in generics!
+  * More of this in generics!
 * Traits can be marked `unsafe`
   * Must use the `unsafe` keyword to implement
   * They're telling you to read the instructions!

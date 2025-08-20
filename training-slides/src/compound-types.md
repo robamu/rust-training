@@ -153,6 +153,8 @@ fn main() {
 
 Note:
 
+From a CS perspective, enums are tagged unions.
+
 The tag in an enum specifies which variant is currently valid, and is stored as the
 smallest integer the compiler can get away with - it depends how many variants you
 have. Of course, if none of the variants have any data, the enum is *just* the tag.
@@ -206,6 +208,10 @@ fn check_shape(shape: Shape) {
     }
 }
 ```
+
+Note:
+
+- Rust allows variable shadowing in general
 
 ## Match guards
 
@@ -268,6 +274,19 @@ fn test_shape(shape: Shape) {
         println!("Shape is a Circle with radius {}", radius);
     }
 }
+```
+
+- Newer Rust versions (edition 2024) allow `if let` chaining, for example:
+
+```rust
+fn test_shape(shape: Shape) {
+    // Harcoded here, but could be determined by other logic.
+    let ignore_rectangle = true;
+    if !ignore_rectangle && let Shape::Rectangle((length, height)) = shape {
+        println!("Shape is a Rectangle with {length} x {height}");
+    }
+}
+
 ```
 
 ## Shorthand: `let else` conditionals

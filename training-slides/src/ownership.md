@@ -39,6 +39,9 @@ The function `String::from` is an associated function called `from` on the `Stri
 
 The `println!` call is a macro, which is how we are able to do to Python-style `{}` string interpolation.
 
+For people with a C++ background: Example is comparable to move-semantics. The string is moved into
+the print function without requiring expensive re-allocation. 
+
 ## Does this compile?
 
 ```rust compile_fail [1-9|2|3|7-9|4]
@@ -237,6 +240,8 @@ Why are there two types of Borrowed string types (`&String` and `&str`)? The fir
 * Rust supports *Method Calls*
 * The first argument of the method is either `self`, `&self` or `&mut self`
 * They are converted to function calls by the compiler
+* The `self` variant consumes the instance, while `&self` and `&mut self` borrow the instance
+  shared or mutably respectively
 
 ```rust []
 fn main() {
@@ -257,8 +262,8 @@ We use `Type::function()` for associated functions, and `variable.method()` for 
 
 If you want to give a function their own object, and keeps yours separate, you have two choices:
 
-* Clone
-* Copy
+* `Clone`
+* `Copy`
 
 ## Clone
 
@@ -342,3 +347,7 @@ fn main() {
 * `TcpStream` closes the connection when dropped
 * `Thread` detaches the thread when dropped
 * etc...
+
+Note:
+
+For people with C++ background: `Drop` is important to implement RAII in Rust

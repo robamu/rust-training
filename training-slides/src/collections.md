@@ -197,6 +197,10 @@ A string slice is tied to the lifetime of the data that it refers to.
 fn main() {
     let s: &'static str = "Hello!";
     println!("s = {}", s);
+    // The type of s2 is equivalent to s: The compiler automatically determines the string literal
+    // type as `&'static str`.
+    let s2 = "Hello 2!";
+    println!("s2 = {}", s2);
 }
 ```
 
@@ -312,6 +316,11 @@ fn main() {
 }
 ```
 
+Note:
+
+Python background: `collections.deque`
+C++ background: std::deque
+
 ## Features of VecDeque
 
 * Growable (will re-allocate if needed)
@@ -347,6 +356,9 @@ Note:
 The index operation will panic if the key is not found, just like with slices and arrays if the index is out of bounds. Get returns an `Option`.
 
 If you run it a few times, the result will change because it is un-ordered.
+
+Python background: dictionary
+C++ background: std::unordered_map
 
 ## The Entry API
 
@@ -413,6 +425,9 @@ fn main() {
     println!("map {:?}", map);
 }
 ```
+
+Python background: no built in, custom key-sorted dictionary
+C++ background: std::map
 
 ## Features of BTreeMap
 

@@ -2,7 +2,7 @@
 
 ## Two types of Rust crates
 
-* binary - a program you can run directly
+* binary - a program you can run directly. another word for application
 * library - a collection of useful code that you can re-use in a binary
 
 ## Binary crate

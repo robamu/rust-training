@@ -59,6 +59,7 @@ Note:
 ## Goals
 
 -   Explicit over implicit
+-   Zero-cost abstraction, high performance
 -   Predictable runtime behaviour
 -   Supporting stable software development for programming at large
 -   Pragmatism and easy integration
