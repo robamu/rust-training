@@ -279,14 +279,18 @@ fn test_shape(shape: Shape) {
 - Newer Rust versions (edition 2024) allow `if let` chaining, for example:
 
 ```rust
+enum Shape {
+    Circle(i32),
+    Rectangle(i32, i32),
+}
+
 fn test_shape(shape: Shape) {
     // Harcoded here, but could be determined by other logic.
     let ignore_rectangle = true;
-    if !ignore_rectangle && let Shape::Rectangle((length, height)) = shape {
+    if !ignore_rectangle && let Shape::Rectangle(length, height) = shape {
         println!("Shape is a Rectangle with {length} x {height}");
     }
 }
-
 ```
 
 ## Shorthand: `let else` conditionals
