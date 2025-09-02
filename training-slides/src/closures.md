@@ -112,7 +112,7 @@ fn main() {
 }
 ```
 
-## Cleaning up
+## Example: Cleaning up
 
 It's also very powerful if you have something you need to clean up.
 
@@ -130,7 +130,7 @@ fn setup_teardown<F, T>(f: F) -> T where F: FnOnce(&mut Vec<u32>) -> T {
 }
 ```
 
-## Cleaning up
+## Example: Cleaning up
 
 ```rust []
 fn setup_teardown<F, T>(f: F) -> T where F: FnOnce(&mut Vec<u32>) -> T {
@@ -154,3 +154,8 @@ fn main() {
 Note:
 
 In release mode, all this code just gets inlined.
+
+## Other usages
+
+- Generic callback functions which can be used in trait definitions as well.
+- Private re-usable functions at a function-local scope.
